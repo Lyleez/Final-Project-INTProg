@@ -1,0 +1,104 @@
+/* Reset some default styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #1c1c1c, #3a3a3a);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #2a2a2a; /* Darker background for the form */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #ffffff; /* White text for the heading */
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #dddddd; /* Light gray for labels */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 5px;
+    background: #1f1f1f; /* Dark background for inputs */
+    color: #ffffff; /* White text for inputs */
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #6a11cb; /* Highlight border on focus */
+    outline: none;
+}
+
+.btn {
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #2575fc, #6a11cb); /* Hover effect */
+}
+
+.links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.links a {
+    color: #1e95e4; /* Link color that suits the background */
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+    color: #09347e; /* Darker shade on hover */
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.success {
+    color: green;
+    text-align: center;
+}
+
+.toggle-password {
+    cursor: pointer;
+    position: absolute; /* Position it relative to the input */
+    right: 42%; /* Adjust as needed */
+    top: 53.5%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    color: #dddddd; /* Color for the icon */
+}

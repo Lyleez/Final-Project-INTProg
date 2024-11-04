@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baskervville";
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(250, 246, 224);
+  
+  transition: background-color 0.3s, color 0.3s;
+}
+body.dark-mode {
+  background-color: #333;
+  
+}
+
+header h1 {
+  min-height: 100px;
+  text-align: center;
+  margin: 40px;
+  font-size: 60px;
+}
+
+header .icon i {
+  position: fixed;
+  top: 37px;
+  right: 80px;
+  color: #000000;
+  cursor: pointer;
+  font-size: 40px;
+  margin-right: 20px;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+header .icon i:hover {
+  color: var(--main-color);
+}
+
+header .search-form {
+  position: fixed;
+  top: 30px;
+  right: 110px;
+  color: #000000;
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+header .search-form.active {
+  transform: scaleY(1);
+}
+
+header .search-form input {
+  font-size: 16px;
+  padding: 10px;
+  text-transform: none;
+  color: #000000;
+}
+header .search-form .suggestions {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 78.8%;
+  height: 40px;
+  z-index: 0;
+}
+
+header .search-form .suggestions p {
+  margin: 0;
+  font-size: 14px;
+  color: #000;
+  background-color: white;
+  z-index: 1;
+}
+.container-team {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.grid-container {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  height: 280px;
+  width: 220px;
+  margin: 20px;
+  perspective: 1000px;
+}
+
+.team-member-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.team-member-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(#979595, #292626);
+  color: #fff;
+}
+
+body.dark-mode .team-member-back {
+  background: linear-gradient(360deg, #e0dede, #b6aaaa);
+  color: rgb(0, 0, 0);
+  transition: 1s;
+}
+
+body.dark-mode .card:hover .team-member-back {
+  background: linear-gradient(360deg, #e0dede, #b6aaaa);
+}
+
+.team-member-front.dark-mode-member {
+  background: linear-gradient(#979595, #292626);
+  color: rgb(0, 0, 0);
+  transition: 1s;
+}
+
+.team-member-back {
+  transform: rotateY(180deg);
+}
+.card:hover .team-member-front {
+  transform: rotateY(180deg);
+}
+
+.card:hover .team-member-back {
+  transform: rotateY(0deg);
+}
+.team-member-front img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.team-member-front h2,
+.team-member-back h2 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+.team-member-front p,
+.team-member-back p {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-size: 16px;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: #111;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  height: 30px;
+  width: 50px;
+  transform: scale(1.5);
+  z-index: 1000;
+}
+.label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3.5px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(23.5px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.add-member {
+  width: 50%;
+  margin: 80px auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #000000;
+}
+body.dark-mode .add-member {
+  background: #000000;
+  color: white;
+}
+.add-member {
+  width: 50%;
+  margin: 80px auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+button[type="submit"] {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+.team-member {
+  text-align: center;
+  margin-top: 20px;
+}
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.team-member h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+.team-member p {
+  font-size: 16px;
+}
+
+.h2 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 10px;
+}
+footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+.container {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 50px; 
+}
+
+footer {
+  position: bottom;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #222;
+  color: white;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.profile-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e4e6eb;
+  padding-bottom: 20px;
+}
+.profile-header img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+.profile-header h2 {
+  margin: 0;
+  color: #1c1e21;
+}
+.profile-header p {
+  color: #606770;
+}
+.profile-info {
+  margin-top: 20px;
+}
+.profile-info h3 {
+  color: #1c1e21;
+}
+.profile-info p {
+  color: #606770;
+  margin: 5px 0;
+}
+.error {
+  color: red;
+  text-align: center;
+}
+
+.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: rgb(250, 246, 224); /* Light text */
+}
+
+.dark-mode .card {
+  background-color: rgb(250, 246, 224); /* Dark card background */
+  border: 1px solid #333; /* Card border */
+}
